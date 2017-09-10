@@ -1,0 +1,53 @@
+<md-sidenav-container fullscreen="true">
+  <md-sidenav #sidenav opened="true" mode="side">
+    <md-toolbar>IA - Algoritmos</md-toolbar>
+    <form>
+      <md-list>
+        <md-list-item>
+          <md-select placeholder="Origem" name="origem" [(ngModel)]="codIbgeOrigem">
+            <md-option *ngFor="let capital of cidades" [value]="capital.codIbge">{{capital.nome}}</md-option>
+          </md-select>
+        </md-list-item>
+        <md-list-item>
+          <md-select placeholder="Destino" name="destino" [(ngModel)]="codIbgeDestino">
+            <md-option *ngFor="let capital of cidades" [value]="capital.codIbge">{{capital.nome}}</md-option>
+          </md-select>
+        </md-list-item>
+        <md-list-item>
+          <md-checkbox [(ngModel)]="isBuscaProfundidade" (change)="toggleBuscas()" name="buscaProfundidade">
+            Busca em Profundidade <div class="circle" style="background:#00FF00;"></div><br>
+            Distancia KM: {{distanciaPath(pathBuscaProfundidade)}}
+          </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          <md-checkbox [(ngModel)]="isBuscaLargura" (change)="toggleBuscas()" name="buscaLargura">
+            Busca em Largura <div class="circle" style="background:#FF0000;"></div><br>
+            Distancia KM: {{distanciaPath(pathBuscaLargura)}}
+          </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          <md-checkbox [(ngModel)]="isBuscaGulosa" (change)="toggleBuscas()" name="buscaGulosa">
+            Busca Gulosa <div class="circle" style="background:#FFFF00;"></div><br>
+            Distancia KM: {{distanciaPath(pathBuscaGulosa)}}
+          </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          <md-checkbox [(ngModel)]="isBuscaAEstrela" (change)="toggleBuscas()" name="buscaAEstrela">
+            Busca A* <div class="circle" style="background:#CCCCCC;"></div><br>
+            Distancia KM: {{distanciaPath(pathBuscaAEstrela)}}
+          </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          <button md-raised-button (click)="buscar()">Executar buscas</button>
+        </md-list-item>
+        <md-list-item>
+          <md-checkbox [(ngModel)]="ocultarConexoes" (change)="toggleConexoes()" name="conexoes">Ocultar Conexões</md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          <md-checkbox [(ngModel)]="ocultarMarkers" (change)="toggleMarkers()" name="markers">Ocultar Markers</md-checkbox>
+        </md-list-item>
+      </md-list>
+    </form>
+  </md-sidenav>
+  <div id="googleMap" style="width:100%;height:100%;"></div>
+</md-sidenav-container>

@@ -1,0 +1,6 @@
+.circle {
+    float: right;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
