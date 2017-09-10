@@ -14,3 +14,5 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 This project is also available on http://mestrado.cjz.com.br
 
+## Source codes
+The sources for algorithms can be found on src/app/app.component.ts
